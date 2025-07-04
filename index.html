@@ -1,84 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-    html{
-      background-color: rgb(224, 238, 251);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Numbers</title>
+  <style>
+    * {
+      box-sizing: border-box;
     }
-    .main{
-      padding: 3% 0 5% 0;
-      margin: 5% 30% 0 30%;
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(224, 238, 251);
+      font-family: Arial, sans-serif;
+    }
+
+    .main {
+      max-width: 400px;
+      margin: 10vh auto;
+      padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 4px 8px black;
-      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
       background-color: aliceblue;
     }
-    h1{
-      font-size: 40px;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-    input{
+
+    input {
+      width: 90%;
       text-align: center;
-      font-size: 20px;
-      border: 1px solid rgb(159, 159, 159);
-      border-radius: 10px;
-      padding: 5px 0 5px 0 ;
+      font-size: 1.1rem;
+      border: 1px solid #9f9f9f;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px 0;
     }
-    button{
+
+    button {
+      width: 90%;
+      font-size: 1.1rem;
       background-color: rgb(133, 198, 255);
-      font-size: 20px;
-      border-radius: 10px;
-      padding: 5px 105px 5px 110px;
-      border: 1px solid rgb(159, 159, 159);
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #9f9f9f;
       cursor: pointer;
     }
-  button:hover{
+
+    button:hover {
       background-color: rgb(73, 142, 203);
-      color: aliceblue;
+      color: white;
       box-shadow: 0 2px 4px black;
     }
-    .sub{
-      text-align: center;
+
+    p {
+      font-size: 1.4rem;
+      margin-top: 20px;
     }
-    p{
-      font-size: 30px;
+
+    @media (max-width: 500px) {
+      .main {
+        margin: 5vh 10px;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
     }
   </style>
-  <body>
-    <div id="app"></div>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
 
-    <script type="text/babel">
-      function HomePage() {
-        const [result, setResult] = React.useState();
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        function handleClick() {
-          const n1 = parseFloat(document.getElementById('n1').value);
-          const n2 = parseFloat(document.getElementById('n2').value);
-          
-          setResult(n1 + n2);
-        }
+  <script type="text/babel">
+    function HomePage() {
+      const [result, setResult] = React.useState();
 
-        return (
-          <div class="main">
-            <h1>Add Two Numbers</h1><br></br>
-            <div class="sub">
-            <input type="number" id="n1" placeholder=" Enter Num1" /><br></br><br></br>
-            <input type="number" id="n2" placeholder="Enter Num2" /><br></br><br></br>
-            <button onClick={handleClick}>Add</button><br></br>
-            <p>Result: {result}</p>
-            </div>  
-          </div>
-        );
+      function handleClick() {
+        const n1 = parseFloat(document.getElementById('n1').value);
+        const n2 = parseFloat(document.getElementById('n2').value);
+        setResult(n1 + n2);
       }
 
-      const root = ReactDOM.createRoot(document.getElementById('app'));
-      root.render(<HomePage />);
-    </script>
-  </body>
+      return (
+        <div className="main">
+          <h1>Add Two Numbers</h1>
+          <input type="number" id="n1" placeholder="Enter Num1" />
+          <input type="number" id="n2" placeholder="Enter Num2" />
+          <button onClick={handleClick}>Add</button>
+          <p>Result: {result}</p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('app'));
+    root.render(<HomePage />);
+  </script>
+</body>
 </html>
